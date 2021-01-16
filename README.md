@@ -1,5 +1,7 @@
 # Station Clock
 
+![clock](assets/images/clock.jpg)
+
 I got a [HyperPixel](https://shop.pimoroni.com/products/hyperpixel-4-square?variant=30138251444307) ages ago but it wasn't suitable for the thing I wanted it for, so it's been sat in a drawer. I recently came across a [very lovely D3.js clock](https://www.danielpradilla.info/blog/a-swiss-railway-clock-in-d3/) and it gave me an idea.
 
 This repo is mostly just a few bits of glue tbh, all the good stuff was created by other people.
