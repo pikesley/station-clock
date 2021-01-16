@@ -1,6 +1,8 @@
 # Station Clock
 
-I got a [HyperPixel](https://shop.pimoroni.com/products/hyperpixel-4-square?variant=30138251444307) ages ago but it wasn't suitable for the thing I wanted it for, so it's been sat in a drawer. I recently came across a [very lovely D3.js clock](https://www.danielpradilla.info/blog/a-swiss-railway-clock-in-d3/) and it gave ma an idea...
+I got a [HyperPixel](https://shop.pimoroni.com/products/hyperpixel-4-square?variant=30138251444307) ages ago but it wasn't suitable for the thing I wanted it for, so it's been sat in a drawer. I recently came across a [very lovely D3.js clock](https://www.danielpradilla.info/blog/a-swiss-railway-clock-in-d3/) and it gave me an idea.
+
+This repo is mostly just a few bits of glue tbh, all the good stuff was created by other people.
 
 ## Software
 
@@ -148,4 +150,6 @@ I first tried this on a Pi Zero but its single-core absolutely could not handle 
 
 Anybody remember [Nimuno Loops](https://twitter.com/nimunoloops?lang=en) (which I think maybe became [Mayka Tape](https://www.thetoyshop.com/lego-construction/building-blocks/Mayka-Tape---2-Stud-Dark-Green-2-Metres-By-ZURU/p/532182_Dgreen))? I have 4 boxes of this stuff from when I backed it on IndieGogo but I never found a use for it until now.
 
-The screen is just about 10 Lego studs by 10 Lego studs, so with the Pi mounted, I worked out where I
+The screen is just about 10 Lego studs by 10 Lego studs, so with the Pi mounted, I worked out where I could attach some bits of the Nimuno, attached the Nimuno stud-side-up to a Lego scaffold to keep it all in the right place, and stuck it down.
+
+I will take some pictures of this tomorrow.
