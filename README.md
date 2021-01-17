@@ -114,7 +114,7 @@ sudo raspi-config
   * S5 Boot / Auto Login
     * B2 Console Autologin
 
-> Note: there's presumably a way to script this, but `¯\_(ツ)_/¯`
+> Note: there's presumably a way to script this bit, but `¯\_(ツ)_/¯`
 
 ### Enable the virtualhost
 
@@ -156,4 +156,4 @@ Anybody remember [Nimuno Loops](https://twitter.com/nimunoloops?lang=en) (which 
 
 The screen is just about 10 Lego studs by 10 Lego studs, so with the Pi mounted, I worked out where I could attach some bits of the Nimuno, attached the Nimuno stud-side-up to a Lego scaffold to keep it all in the right place, and stuck it down.
 
-I will take some pictures of this tomorrow.
+This would work much better if I took some pictures wouldn't it?
