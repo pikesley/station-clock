@@ -38,7 +38,7 @@ SSH onto the Pi, and then, per [this](https://github.com/pimoroni/hyperpixel4):
 curl https://get.pimoroni.com/hyperpixel4 | bash
 ```
 
-Select the correct screen and Pi combination (in my case it's `3 : Weirdly Square - Pi 3B+ or older`) and let it do its thing. When it's done it will reboot. Now
+Select the correct screen and Pi combination (in my case it's `3 : Weirdly Square - Pi 3B+ or older`) and let it do its thing. When it's done it will reboot, and the screen should work. Now
 
 ### Make it boot into Chromium
 
