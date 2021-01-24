@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat");
+body, div {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Montserrat"; }
+
+.leaf {
+  fill: #6bc048; }
+
+.seconds {
+  fill: #c41949; }
+
+.hours, .minutes {
+  fill: #333333; }
+
+.drupelet {
+  fill: #c41949; }
+
+.tick {
+  fill: black; }
+
+.outercircle {
+  stroke: black;
+  stroke-width: 2; }
+
+.text-heading {
+  font-size: 2em; }
+
+.text-subheading {
+  font-size: 1em; }
+
+/*# sourceMappingURL=styles.css.map */

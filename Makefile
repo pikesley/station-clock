@@ -22,6 +22,10 @@ run: laptop-only
 serve: docker-only
 	service nginx start
 
+sass: docker-only
+	rm d3clock/css/styles.css
+	sass d3clock/css/styles.scss d3clock/css/styles.css
+
 ###
 
 docker-only:

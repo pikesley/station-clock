@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat");
+$principal-font: "Montserrat";
+
+$red: rgb(196,25,73);
+$green: rgb(107,192,72);
+$grey: rgb(51,51,51);
+
+body, div {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: $principal-font;
+}
+
+.leaf {
+  fill: $green;
+}
+
+ .seconds {
+  fill: $red;
+}
+
+.hours, .minutes {
+  fill: $grey;
+}
+
+.drupelet {
+  fill: $red;
+}
+
+.tick {
+  fill: black;
+}
+
+.outercircle {
+  stroke: black;
+  stroke-width: 2;
+}
+
+.text-heading {
+  font-size: 2em;
+}
+
+.text-subheading {
+  font-size: 1em;
+}
