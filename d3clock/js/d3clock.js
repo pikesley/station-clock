@@ -85,18 +85,13 @@ var d3clock = function (config) {
   //clock faces configuration
   var faces = {
     'sbb': {
-      outerRing: { r: outerRadius * 1.05, stroke: 'black', strokeWidth: 2 },
-      secondsRing: { r: outerRadius * 0, fill: 'black' },
-      secondsInnermostRing: { r: outerRadius * 0, fill: 'black' },
+      outerRing: { r: outerRadius * 1.05 },
       tickUnit: outerRadius * 0.0625 / 3,
       tickWidth: function (i) {
         return (i % 5) ? this.tickUnit : this.tickUnit * 3;
       },
       tickHeight: function (i) {
         return (i % 5) ? this.tickUnit * 3 : this.tickUnit * 3 * 3;
-      },
-      tickFill: function (i) {
-        return 'black';
       },
       rotationTranslate: function (i) {
         return "translate(" + (-this.tickWidth(i) / 2) + ",0)";
@@ -128,13 +123,6 @@ var d3clock = function (config) {
           return this.tickUnit;
         }
       },
-      clockHandFill: function (d) {
-        if (d.unit === "seconds") {
-          return "#c41949";
-        } else {
-          return "#333";
-        }
-      },
       clockHandHeight: function (d) {
         if (d.unit === "hours") {
           return (outerRadius - this.tickUnit * 3 * 3) * 1.2;
@@ -158,7 +146,7 @@ var d3clock = function (config) {
           .attr('cy', function (d, i) {
             return -outerRadius + that.tickUnit * 3 * 3 + that.tickUnit * 4
           })
-          .attr("fill", "#c41949");
+          .attr("class", "seconds");
 
       },
       clockGroupAdditional: function (clockGroup) {
@@ -166,10 +154,6 @@ var d3clock = function (config) {
       },
       easing: 'linear'
     },
-
-
-
-
   };
 
   var faceObj = faces[face];
@@ -177,43 +161,39 @@ var d3clock = function (config) {
   //create the basic visualization:
   vis = d3.select(config.target).append("svg:svg").attr("width", width).attr("height", height).attr("class", "clock");
 
+  // my bumbling begins here
   raspberry(vis)
 
-  // https://www.d3-graph-gallery.com/graph/shape.html
-  vis.append("path")
-    .attr("id", "text-heading")
-    .attr("transform", "translate(" + offSetX + "," + offSetY + ")")
-    .attr("d", d3.svg.arc()
-      .innerRadius(faceObj.outerRing.r / 2)
-      .outerRadius(faceObj.outerRing.r / 2)
-      .startAngle(-1)
-      .endAngle(1)
-    )
+  text = [
+    [
+      "text-heading", "RASPBERRY PI", 2
+    ],
+    [
+      "text-subheading", "· CAMBRIDGE ·", 2.5
+    ],
+  ]
 
-  vis.append("path")
-    .attr("id", "text-subheading")
-    .attr("transform", "translate(" + offSetX + "," + offSetY + ")")
-    .attr("d", d3.svg.arc()
-      .innerRadius(faceObj.outerRing.r / 2.5)
-      .outerRadius(faceObj.outerRing.r / 2.5)
-      .startAngle(-1)
-      .endAngle(1)
-    )
+  text.forEach(function (data) {
+    // https://www.d3-graph-gallery.com/graph/shape.html
+    vis.append("path")
+      .attr("id", data[0])
+      .attr("transform", "translate(" + offSetX + "," + offSetY + ")")
+      .attr("d", d3.svg.arc()
+        .innerRadius(faceObj.outerRing.r / data[2])
+        .outerRadius(faceObj.outerRing.r / data[2])
+        .startAngle(-Math.PI)
+        .endAngle(Math.PI)
+      )
 
-  // https://www.visualcinnamon.com/2015/09/placing-text-on-arcs.html
-  vis.append("text")
-    .append("textPath") //append a textPath to the text element
-    .attr("xlink:href", "#text-heading") //place the ID of the path here
-    .style("text-anchor", "middle") //place the text halfway on the arc
-    .attr("startOffset", "25%")
-    .text("· RASPBERRY PI ·")
-
-  vis.append("text")
-    .append("textPath") //append a textPath to the text element
-    .attr("xlink:href", "#text-subheading") //place the ID of the path here
-    .style("text-anchor", "middle") //place the text halfway on the arc
-    .attr("startOffset", "25%")
-    .text("· CAMBRIDGE ·")
+    // https://www.visualcinnamon.com/2015/09/placing-text-on-arcs.html
+    vis.append("text")
+      .append("textPath") //append a textPath to the text element
+      .attr("xlink:href", "#" + data[0]) //place the ID of the path here
+      .style("text-anchor", "middle") //place the text halfway on the arc
+      .attr("startOffset", "25%")
+      .attr("class", data[0])
+      .text(data[1])
+  })
   // end of my bumbling
 
   clockGroup = vis.append("svg:g").attr("transform", "translate(" + offSetX + "," + offSetY + ")");
@@ -223,8 +203,6 @@ var d3clock = function (config) {
     .attr("r", faceObj.outerRing.r)
     .attr("fill", "none")
     .attr("class", "clock outercircle")
-    .attr("stroke", faceObj.outerRing.stroke)
-    .attr("stroke-width", faceObj.outerRing.strokeWidth);
 
   faceObj.clockGroupAdditional(clockGroup);
 
@@ -241,7 +219,7 @@ var d3clock = function (config) {
     // .attr("width", function(d, i){return (i%5) ? 0 : 1;})
     .attr("width", function (d, i) { return faceObj.tickWidth(i); })
     .attr("height", function (d, i) { return faceObj.tickHeight(i); })
-    .attr("fill", function (d, i) { return faceObj.tickFill(i); })
+    .attr("class", function (d, i) { return "tick" })
     .attr("transform", function (d, i) {
       return "rotate(" + (i * 6) + ")," + faceObj.rotationTranslate(i);
     }
@@ -316,25 +294,12 @@ var d3clock = function (config) {
         .attr("width", function (d, i) {
           return faceObj.clockHandWidth(d);
         })
-        .attr("fill", function (d, i) {
-          return faceObj.clockHandFill(d);
+        .attr("class", function (d, i) {
+          return d;
         })
         .attr("height", function (d, i) {
           return faceObj.clockHandHeight(d);
         });
-
-      //create the circle of the seconds hand
-      clockGroup.append("svg:circle")
-        .attr("r", faceObj.secondsRing.r)
-        .attr("fill", faceObj.secondsRing.fill)
-        .attr("class", "clock innercircle");
-
-      //create the circle of the pin that holds in place the seconds hand
-      clockGroup.append("svg:circle")
-        .attr("r", faceObj.secondsInnermostRing.r)
-        .attr("fill", faceObj.secondsInnermostRing.fill)
-        .attr("class", "clock innermostcircle");
-
     }
 
     clockHand.transition().duration(1000).ease(faceObj.easing).attr("transform", function (d, i) {
