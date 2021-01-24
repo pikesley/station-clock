@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Clock</title>
+
+    <style>
+    body, div {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+			font-family: sans-serif;
+    }
+
+    </style>
+
+  </head>
+
+  <body>
+  <div id="chart1"></div>
+
+
+
+	<!-- load the d3.js library -->
+	<!-- <script src="../bower_components/d3/d3.min.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
+	<script src="d3clock.js"></script>
+
+	<script>
+		d3clock({
+			target:'#chart1',
+			face:'sbb',
+			width:720,
+			// date:'Mon May 25 2015 10:09:37',
+			TZOffset:{
+				hours:0
+			}
+		});
+	</script>
+
+  </body>
+</html>
