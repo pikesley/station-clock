@@ -147,3 +147,16 @@ Anybody remember [Nimuno Loops](https://twitter.com/nimunoloops?lang=en) (which 
 The screen is just about 10 Lego studs by 10 Lego studs, so with the Pi mounted, I worked out where I could attach some bits of the Nimuno, attached the Nimuno stud-side-up to a Lego scaffold to keep it all in the right place, and stuck it down.
 
 This would work much better if I took some pictures wouldn't it?
+
+## Development
+
+I added a Docker file to make it easier to hack on the design. To run it:
+
+```bash
+make build
+make run
+```
+
+Once in the container, spin up `nginx` and you should be cooking at [http://localhost:8080/](http://localhost:8080/)
+
+If you're editing the [Sass](d3clock/css/styles.scss) you need to run `make sass` to see the changes
