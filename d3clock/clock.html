@@ -1,26 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
 
-    <title>Clock</title>
+<head>
+	<meta charset="utf-8">
 
-    <style>
-    body, div {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-			font-family: sans-serif;
-    }
+	<title>Clock</title>
+</head>
 
-    </style>
-
-  </head>
-
-  <body>
-  <div id="chart1"></div>
-
-
+<body>
+	<div id="clock"></div>
 
 	<!-- load the d3.js library -->
 	<!-- <script src="../bower_components/d3/d3.min.js"></script> -->
@@ -28,17 +16,19 @@
 	<script src="d3clock.js"></script>
 	<script src="berry.js"></script>
 
+	<link rel="stylesheet" href="styles.css">
+
 	<script>
 		d3clock({
-			target:'#chart1',
-			face:'sbb',
-			width:720,
+			target: '#clock',
+			width: 720,
 			// date:'Mon May 25 2015 10:09:37',
-			TZOffset:{
-				hours:0
+			TZOffset: {
+				hours: 0
 			}
 		});
 	</script>
 
-  </body>
+</body>
+
 </html>
