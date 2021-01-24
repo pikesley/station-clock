@@ -86,7 +86,7 @@ xset s noblank
 
 unclutter &
 chromium-browser \${URL} \\
-  --window-size=\$SCREEN_SIZE},\$SCREEN_SIZE} \\
+  --window-size=\${SCREEN_SIZE},\${SCREEN_SIZE} \\
   --window-position=0,0 \\
   --start-fullscreen \\
   --kiosk \\
