@@ -144,19 +144,32 @@ I first tried this on a Pi Zero but its single-core absolutely could not handle 
 
 Anybody remember [Nimuno Loops](https://twitter.com/nimunoloops?lang=en) (which I think maybe became [Mayka Tape](https://www.thetoyshop.com/lego-construction/building-blocks/Mayka-Tape---2-Stud-Dark-Green-2-Metres-By-ZURU/p/532182_Dgreen))? I have 4 boxes of this stuff from when I backed it on IndieGogo but I never found a use for it until now.
 
-The screen is just about 10 Lego studs by 10 Lego studs, so with the Pi mounted, I worked out where I could attach some bits of the Nimuno, attached the Nimuno stud-side-up to a Lego scaffold to keep it all in the right place, and stuck it down.
+The screen is just about 10 Lego studs by 10 Lego studs, so with the Pi mounted, I worked out where I could attach some bits of the Nimuno, attached the Nimuno stud-side-up to a Lego scaffold to keep it all in the right place, and stuck it down:
 
-This would work much better if I took some pictures wouldn't it?
+![numino](assets/images/numino.jpg)
+
+And then I attached a frame made out of Lego:
+
+![lego](assets/images/lego.jpg)
 
 ## Development
 
-I added a Docker file to make it easier to hack on the design. To run it:
+I added a Dockerfile to make it easier to hack on the design. To run it:
 
 ```bash
 make build
 make run
 ```
 
-Once in the container, spin up `nginx` and you should be cooking at [http://localhost:8080/](http://localhost:8080/)
+Once in the container, spin up `nginx` with `make serve` and it should be running at [http://localhost:8080/](http://localhost:8080/).
 
-If you're editing the [Sass](d3clock/css/styles.scss) you need to run `make sass` to see the changes
+If you're editing the [Sass](d3clock/css/styles.scss) you need to run `make sass` to see the changes.
+
+Once you're happy, just push the code to the Pi:
+
+```bash
+cd ../
+rsync -av station-clock pi@raspberrypi.local:
+```
+
+> You might need to sweeten that to taste depending on hostnames and things.
