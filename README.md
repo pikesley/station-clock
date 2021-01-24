@@ -122,16 +122,6 @@ sudo raspi-config
 sudo ln -sf /home/pi/station-clock/nginx/site.conf /etc/nginx/sites-enabled/default
 ```
 
-### Get and patch the clock js
-
-```bash
-git clone https://github.com/danielpradilla/d3clock
-patch --verbose  --ignore-whitespace --unified d3clock/clock.html --input patches/clock.html.patch
-patch --verbose  --ignore-whitespace --unified d3clock/d3clock.js --input patches/d3clock.js.patch
-mkdir d3clock/assets
-cp assets/images/raspberry.svg d3clock/assets
-```
-
 ### (Optionally) disable the low-power warnings
 
 ```bash
