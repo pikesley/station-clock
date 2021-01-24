@@ -177,17 +177,11 @@ var d3clock = function (config) {
   //create the basic visualization:
   vis = d3.select(config.target).append("svg:svg").attr("width", width).attr("height", height).attr("class", "clock");
 
-  // hacked in by me, I remember very little about how D3 works
-  raspberry = vis.append("svg:image")
-    .attr("xlink:href", "assets/raspberry.svg")
-    .attr("width", function () { return rasp_width })
-    .attr("x", function () { return (width / 2) - (rasp_width / 2); })
-    .attr("y", function () { return (height / 2) + ((height / 6) - (rasp_width / 2)); })
-  raspberry.style("text-anchor", "middle")
+  raspberry(vis)
 
   // https://www.d3-graph-gallery.com/graph/shape.html
   vis.append("path")
-    .attr("id", "text-base")
+    .attr("id", "text-heading")
     .attr("transform", "translate(" + offSetX + "," + offSetY + ")")
     .attr("d", d3.svg.arc()
       .innerRadius(faceObj.outerRing.r / 2)
@@ -196,14 +190,30 @@ var d3clock = function (config) {
       .endAngle(1)
     )
 
+  vis.append("path")
+    .attr("id", "text-subheading")
+    .attr("transform", "translate(" + offSetX + "," + offSetY + ")")
+    .attr("d", d3.svg.arc()
+      .innerRadius(faceObj.outerRing.r / 2.5)
+      .outerRadius(faceObj.outerRing.r / 2.5)
+      .startAngle(-1)
+      .endAngle(1)
+    )
+
   // https://www.visualcinnamon.com/2015/09/placing-text-on-arcs.html
   vis.append("text")
     .append("textPath") //append a textPath to the text element
-    .attr("xlink:href", "#text-base") //place the ID of the path here
-     .style("text-anchor","middle") //place the text halfway on the arc
-     .attr("startOffset", "25%")
+    .attr("xlink:href", "#text-heading") //place the ID of the path here
+    .style("text-anchor", "middle") //place the text halfway on the arc
+    .attr("startOffset", "25%")
     .text("· RASPBERRY PI ·")
 
+  vis.append("text")
+    .append("textPath") //append a textPath to the text element
+    .attr("xlink:href", "#text-subheading") //place the ID of the path here
+    .style("text-anchor", "middle") //place the text halfway on the arc
+    .attr("startOffset", "25%")
+    .text("· CAMBRIDGE ·")
   // end of my bumbling
 
   clockGroup = vis.append("svg:g").attr("transform", "translate(" + offSetX + "," + offSetY + ")");
