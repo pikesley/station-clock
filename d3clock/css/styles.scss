@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat");
 $principal-font: "Montserrat";
 
-$red: rgb(196,25,73);
-$green: rgb(107,192,72);
-$grey: rgb(51,51,51);
+$red: rgb(196, 25, 73);
+$green: rgb(107, 192, 72);
+$grey: rgb(51, 51, 51);
 $lightgrey: lighten($grey, 70%);
 
-body, div {
+body,
+div {
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -18,11 +19,12 @@ body, div {
   fill: $green;
 }
 
- .seconds {
+.seconds {
   fill: $red;
 }
 
-.hours, .minutes {
+.hours,
+.minutes {
   fill: $grey;
 }
 
