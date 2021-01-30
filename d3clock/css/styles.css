@@ -3,7 +3,8 @@ body, div {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  font-family: "Montserrat"; }
+  font-family: "Montserrat";
+  background-color: #e6e6e6; }
 
 .leaf {
   fill: #6bc048; }

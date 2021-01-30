@@ -4,12 +4,14 @@ $principal-font: "Montserrat";
 $red: rgb(196,25,73);
 $green: rgb(107,192,72);
 $grey: rgb(51,51,51);
+$lightgrey: lighten($grey, 70%);
 
 body, div {
   margin: 0;
   padding: 0;
   overflow: hidden;
   font-family: $principal-font;
+  background-color: $lightgrey;
 }
 
 .leaf {
