@@ -162,7 +162,7 @@ var d3clock = function (config) {
   vis = d3.select(config.target).append("svg:svg").attr("width", width).attr("height", height).attr("class", "clock");
 
   // my bumbling begins here
-  raspberry(vis)
+  raspberry(vis, offSetX)
 
   text = [
     [
