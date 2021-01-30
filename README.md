@@ -116,6 +116,12 @@ sudo raspi-config
 
 > Note: there's presumably a way to script this bit, but `¯\_(ツ)_/¯`
 
+### Clone this repo
+
+```bash
+git clone https://github.com/pikesley/station-clock
+```
+
 ### Enable the virtualhost
 
 ```bash
