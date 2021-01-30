@@ -146,8 +146,7 @@ var d3clock = function (config) {
           .attr('cy', function (d, i) {
             return -outerRadius + that.tickUnit * 3 * 3 + that.tickUnit * 4
           })
-          .attr("class", "seconds");
-
+          .attr("class", "seconds hands");
       },
       clockGroupAdditional: function (clockGroup) {
         return true;
@@ -284,7 +283,7 @@ var d3clock = function (config) {
       clockHand.remove();
       clockHand.enter().append("svg:g");
       clockHand.attr("class", function (d) {
-        return "clockhand " + d.unit;
+        return "clockhand hands " + d.unit;
       }).append("svg:rect").attr("x", function (d, i) {
         return faceObj.clockHandx(d);
       })

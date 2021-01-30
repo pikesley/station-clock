@@ -15,6 +15,9 @@ body, div {
 .hours, .minutes {
   fill: #333333; }
 
+.hands {
+  opacity: 70%; }
+
 .drupelet {
   fill: #c41949; }
 
