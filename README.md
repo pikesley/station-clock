@@ -15,12 +15,8 @@ You'll need to use a proper screen for the install because the Hyperpixel won't 
 After the first boot, you need to enable SSH:
 
 ```bash
-sudo raspi-config
+sudo raspi-config nonint do_ssh 0
 ```
-
-* `3 Interface Options`
-  * `P2 SSH`
-    * `Yes`
 
 Once you've done this you should be able to get to the Pi with
 
@@ -107,14 +103,8 @@ EOF
 And now make it auto-login:
 
 ```bash
-sudo raspi-config
+sudo raspi-config nonint do_boot_behaviour B2
 ```
-
-* 1 System Options
-  * S5 Boot / Auto Login
-    * B2 Console Autologin
-
-> Note: there's presumably a way to script this bit, but `¯\_(ツ)_/¯`
 
 ### Clone this repo
 
